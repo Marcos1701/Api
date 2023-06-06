@@ -14,9 +14,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.use(router);
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Bem vindo ao microblog!!')
-});
 
 app.use(function (req: Request, res: Response, next: Function) {
     res.status(404).send('Sorry cant find that!');
