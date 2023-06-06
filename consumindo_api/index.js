@@ -1,6 +1,5 @@
 const url = "https://run-production-d546.up.railway.app/"
 
-
 loadTasks = async () => {
     const response = await fetch(`${url}tasks`, {
         method: "GET"
@@ -8,6 +7,7 @@ loadTasks = async () => {
     );
     const { tasks } = await response.json();
     const taskslist = document.getElementById("tasks");
+    taskslist.innerText = "";
 
     const noTasksElement = taskslist.querySelector("#no-tasks");
     if (tasks.length > 0) {
