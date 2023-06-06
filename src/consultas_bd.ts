@@ -59,7 +59,7 @@ const validastring = (id: string) => {
 export const getTasks = async (req: Request, res: Response) => {
     try {
         const response = await client.query(`SELECT * FROM Tasks`)
-        res.status(200).json(response.rows)
+        res.status(200).json({ tasks: response.rows })
     } catch (err) {
         if (err instanceof Error) {
             res.status(500)
