@@ -62,7 +62,7 @@ export const getTasks = async (req: Request, res: Response) => {
         res.status(200).json(response.rows)
     } catch (err) {
         if (err instanceof Error) {
-            res.status(500).json({ message: err.message })
+            res.status(500)
         }
     }
 }
@@ -70,14 +70,14 @@ export const getTasks = async (req: Request, res: Response) => {
 export const getTaskById = async (req: Request, res: Response) => {
     const { id } = req.params
     if (!validastring(id)) {
-        res.status(400).json({ message: "ID inválido" })
+        res.status(400)
     }
     try {
         const response = await client.query(`SELECT * FROM Tasks WHERE id = $1`, [id])
         res.status(200).json(response.rows)
     } catch (err) {
         if (err instanceof Error) {
-            res.status(500).json({ message: err.message })
+            res.status(500)
         }
     }
 }
@@ -85,7 +85,7 @@ export const getTaskById = async (req: Request, res: Response) => {
 export const createTask = async (req: Request, res: Response) => {
     const { title, description } = req.body
     if (!validastring(title) || !validastring(description)) {
-        res.status(400).json({ message: "Dados inválidos" })
+        res.status(400)
     }
     try {
         const id: string = uuid()
