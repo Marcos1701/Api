@@ -1,1 +1,1 @@
-web: yarn start && node ./dist/swagger.js
+web: yarn start
