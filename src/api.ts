@@ -10,7 +10,7 @@ app.use(cors({ origin: true }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(require('../swagger.json')));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(require('./swagger.json')));
 
 app.use(express.json())
 app.use(express.raw({ type: 'application/vnd.custom-type' }));
